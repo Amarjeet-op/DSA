@@ -19,8 +19,10 @@ a{color:#6366f1;text-decoration:none}a:hover{text-decoration:underline}
 .btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#4f46e5;padding:9px 14px;border-radius:999px;font-weight:800;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
 .card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:22px;box-shadow:0 8px 24px rgba(15,23,42,.06);margin-top:18px}
 .card h2{margin:0 0 12px;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#64748b}
-.prose{font-size:15px;line-height:1.7;color:#0f172a}
-.prose p{margin:10px 0}
+.prose{font-size:15px;line-height:1.7;color:#0f172a;overflow:visible;max-width:100%;word-break:break-word;overflow-wrap:anywhere;white-space:normal}
+.prose p{margin:10px 0;white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible}
+.prose ul,.prose ol{overflow:visible;max-width:100%;word-break:break-word;overflow-wrap:anywhere;white-space:normal}
+.prose li{white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible}
 .prose pre{background:#0b1020 !important;color:#e2e8f0 !important;padding:16px !important;border-radius:12px !important;overflow:visible !important;max-width:100% !important;border:1px solid #1e293b !important;font-size:13.5px !important;line-height:1.6 !important;white-space:pre-wrap !important;word-break:break-word !important;overflow-wrap:anywhere !important;word-wrap:break-word !important}
 .prose code{background:#f1f5f9;padding:2px 6px;border-radius:6px;font-size:13px;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere}
 .prose pre code{background:transparent !important;padding:0 !important;color:inherit !important;white-space:pre-wrap !important;border:none !important}
@@ -53,64 +55,64 @@ a{color:#6366f1;text-decoration:none}a:hover{text-decoration:underline}
 
   <div class="card">
     <h2>📝 Description</h2>
-    <div class="prose"><p>You are given two strings <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">s</code> and <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">target</code>, both having length <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">n</code>, consisting of lowercase English letters.</p>
+    <div class="prose"><p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">You are given two strings <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">s</code> and <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">target</code>, both having length <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">n</code>, consisting of lowercase English letters.</p>
 
-<p>Return the <strong>lexicographically smallest <span data-keyword="permutation-string">permutation</span></strong> of <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">s</code> that is <strong>strictly</strong> greater than <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">target</code>. If no permutation of <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">s</code> is lexicographically strictly greater than <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">target</code>, return an empty string.</p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">Return the <strong style="word-break:break-word;overflow-wrap:anywhere">lexicographically smallest <span data-keyword="permutation-string">permutation</span></strong> of <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">s</code> that is <strong style="word-break:break-word;overflow-wrap:anywhere">strictly</strong> greater than <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">target</code>. If no permutation of <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">s</code> is lexicographically strictly greater than <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">target</code>, return an empty string.</p>
 
-<p>A string <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">a</code> is <strong>lexicographically strictly greater </strong>than a string <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">b</code> (of the same length) if in the first position where <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">a</code> and <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">b</code> differ, string <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">a</code> has a letter that appears later in the alphabet than the corresponding letter in <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">b</code>.</p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">A string <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">a</code> is <strong style="word-break:break-word;overflow-wrap:anywhere">lexicographically strictly greater </strong>than a string <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">b</code> (of the same length) if in the first position where <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">a</code> and <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">b</code> differ, string <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">a</code> has a letter that appears later in the alphabet than the corresponding letter in <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">b</code>.</p>
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">&nbsp;</p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere" class="example">Example 1:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;abc&quot;, target = &quot;bba&quot;</span></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Input:</strong> <span class="example-io">s = &quot;abc&quot;, target = &quot;bba&quot;</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">&quot;bca&quot;</span></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Output:</strong> <span class="example-io">&quot;bca&quot;</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Explanation:</strong></p>
 
-<ul>
-	<li>The permutations of <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">s</code> (in lexicographical order) are <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;abc&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;acb&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;bac&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;bca&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;cab&quot;</code>, and <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;cba&quot;</code>.</li>
-	<li>The lexicographically smallest permutation that is strictly greater than <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">target</code> is <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;bca&quot;</code>.</li>
+<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">The permutations of <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">s</code> (in lexicographical order) are <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;abc&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;acb&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;bac&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;bca&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;cab&quot;</code>, and <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;cba&quot;</code>.</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">The lexicographically smallest permutation that is strictly greater than <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">target</code> is <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;bca&quot;</code>.</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere" class="example">Example 2:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;leet&quot;, target = &quot;code&quot;</span></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Input:</strong> <span class="example-io">s = &quot;leet&quot;, target = &quot;code&quot;</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">&quot;eelt&quot;</span></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Output:</strong> <span class="example-io">&quot;eelt&quot;</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Explanation:</strong></p>
 
-<ul>
-	<li>The permutations of <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">s</code> (in lexicographical order) are <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;eelt&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;eetl&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;elet&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;elte&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;etel&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;etle&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;leet&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;lete&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;ltee&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;teel&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;tele&quot;</code>, and <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;tlee&quot;</code>.</li>
-	<li>The lexicographically smallest permutation that is strictly greater than <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">target</code> is <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;eelt&quot;</code>.</li>
+<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">The permutations of <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">s</code> (in lexicographical order) are <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;eelt&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;eetl&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;elet&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;elte&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;etel&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;etle&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;leet&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;lete&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;ltee&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;teel&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;tele&quot;</code>, and <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;tlee&quot;</code>.</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">The lexicographically smallest permutation that is strictly greater than <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">target</code> is <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;eelt&quot;</code>.</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere" class="example">Example 3:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;baba&quot;, target = &quot;bbaa&quot;</span></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Input:</strong> <span class="example-io">s = &quot;baba&quot;, target = &quot;bbaa&quot;</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">&quot;&quot;</span></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Output:</strong> <span class="example-io">&quot;&quot;</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Explanation:</strong></p>
 
-<ul>
-	<li>The permutations of <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">s</code> (in lexicographical order) are <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;aabb&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;abab&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;abba&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;baab&quot;</code>, <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;baba&quot;</code>, and <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;bbaa&quot;</code>.</li>
-	<li>None of them is lexicographically strictly greater than <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">target</code>. Therefore, the answer is <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">&quot;&quot;</code>.</li>
+<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">The permutations of <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">s</code> (in lexicographical order) are <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;aabb&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;abab&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;abba&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;baab&quot;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;baba&quot;</code>, and <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;bbaa&quot;</code>.</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">None of them is lexicographically strictly greater than <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">target</code>. Therefore, the answer is <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&quot;&quot;</code>.</li>
 </ul>
 </div>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">&nbsp;</p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Constraints:</strong></p>
 
-<ul>
-	<li><code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">1 &lt;= s.length == target.length &lt;= 300</code></li>
-	<li><code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">s</code> and <code style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere">target</code> consist of only lowercase English letters.</li>
+<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">1 &lt;= s.length == target.length &lt;= 300</code></li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">s</code> and <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">target</code> consist of only lowercase English letters.</li>
 </ul>
 </div>
     <details class="hint"><summary>💡 Hint 1</summary><div class="hint-body">Maintain frequency counts of <code>s</code>.</div></details><details class="hint"><summary>💡 Hint 2</summary><div class="hint-body">Walk left-to-right; if equal to <code>target[i]</code> is possible, take it and continue.</div></details><details class="hint"><summary>💡 Hint 3</summary><div class="hint-body">If not, try the smallest letter strictly greater than <code>target[i]</code>.</div></details><details class="hint"><summary>💡 Hint 4</summary><div class="hint-body">If neither, backtrack left to the most recent index where you matched <code>target</code> and try to bump there.</div></details>
@@ -163,7 +165,7 @@ public:
     </div>
   </div>
 
-  <div class="footer">Saved via LeetCode → GitHub Saver • 8/27/2026, 11:21:03 AM • <a href="https://leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target/">leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target</a></div>
+  <div class="footer">Saved via LeetCode → GitHub Saver • 8/27/2026, 11:24:12 AM • <a href="https://leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target/">leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target</a></div>
 </div>
 </body>
 </html>
