@@ -5,39 +5,36 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Lexicographically Smallest Permutation Greater Than Target - LeetCode</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:ui-sans,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial;color:#0f172a;background:#f8fafc}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#f8fafc;color:#0f172a;font-family:ui-sans,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial;overflow:visible !important;overflow-x:visible !important;max-width:100%}
 a{color:#6366f1;text-decoration:none}a:hover{text-decoration:underline}
-.container{max-width:880px;margin:0 auto;padding:24px}
-.hero{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 45%,#ec4899 100%);border-radius:20px;color:#fff;padding:32px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(99,102,241,.35)}
-.hero::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.25),transparent 60%);border-radius:50%}
-.hero h1{margin:0 0 12px;font-size:28px;line-height:1.2;letter-spacing:-.02em}
+.container{max-width:880px;margin:0 auto;padding:24px;overflow:visible;max-width:100%}
+.hero{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 45%,#ec4899 100%);border-radius:20px;color:#fff;padding:32px;position:relative;overflow:visible;box-shadow:0 12px 40px rgba(99,102,241,.35)}
+.hero::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.25),transparent 60%);border-radius:50%;pointer-events:none}
+.hero h1{margin:0 0 12px;font-size:28px;line-height:1.2;letter-spacing:-.02em;white-space:normal;word-break:break-word;overflow-wrap:anywhere}
 .meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
 .pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.02em;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25)}
 .pill.diff{background:#FFC01E;color:#111827;border-color:transparent;box-shadow:0 4px 12px rgba(0,0,0,.15)}
 .dot{width:8px;height:8px;border-radius:50%;background:#FFD24D;box-shadow:0 0 0 4px rgba(255,255,255,.2)}
-.chip{background:rgba(255,255,255,.92);color:#1e293b;border:none;padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#4f46e5;padding:9px 14px;border-radius:999px;font-weight:800;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:22px;box-shadow:0 8px 24px rgba(15,23,42,.06);margin-top:18px}
+.chip{background:rgba(255,255,255,.92);color:#1e293b;border:none;padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px;white-space:normal;word-break:break-word}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#4f46e5;padding:9px 14px;border-radius:999px;font-weight:800;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.18);white-space:normal}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:22px;box-shadow:0 8px 24px rgba(15,23,42,.06);margin-top:18px;overflow:visible;max-width:100%}
 .card h2{margin:0 0 12px;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#64748b}
-.prose{font-size:15px;line-height:1.7;color:#0f172a;overflow:visible;max-width:100%;word-break:break-word;overflow-wrap:anywhere;white-space:normal}
-.prose p{margin:10px 0;white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible}
-.prose ul,.prose ol{overflow:visible;max-width:100%;word-break:break-word;overflow-wrap:anywhere;white-space:normal}
-.prose li{white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible}
-.prose pre{background:#0b1020 !important;color:#e2e8f0 !important;padding:16px !important;border-radius:12px !important;overflow:visible !important;max-width:100% !important;border:1px solid #1e293b !important;font-size:13.5px !important;line-height:1.6 !important;white-space:pre-wrap !important;word-break:break-word !important;overflow-wrap:anywhere !important;word-wrap:break-word !important}
-.prose code{background:#f1f5f9;padding:2px 6px;border-radius:6px;font-size:13px;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere}
-.prose pre code{background:transparent !important;padding:0 !important;color:inherit !important;white-space:pre-wrap !important;border:none !important}
-.prose ul,.prose ol{margin:10px 0 10px 22px}
-.prose li{margin:4px 0}
-.prose strong{color:#0f172a}
-.hint{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin:10px 0}
+.prose{font-size:15px;line-height:1.7;color:#0f172a;overflow:visible !important;max-width:100% !important;word-break:break-word;overflow-wrap:anywhere;white-space:normal}
+.prose *{max-width:100% !important;box-sizing:border-box !important;overflow:visible !important;overflow-x:visible !important}
+.prose p,.prose ul,.prose ol,.prose li,.prose div{white-space:normal !important;word-break:break-word !important;overflow-wrap:anywhere !important;overflow:visible !important;max-width:100% !important}
+.prose pre{white-space:pre-wrap !important;word-break:break-word !important;overflow-wrap:anywhere !important;overflow:visible !important;max-width:100% !important;display:block}
+.prose code{white-space:normal !important;word-break:break-word !important;overflow-wrap:anywhere !important;max-width:100% !important;display:inline;overflow:visible !important;background:#f1f5f9;padding:2px 6px;border-radius:6px;font-size:13px}
+.prose strong{color:#0f172a;white-space:normal;word-break:break-word}
+.hint{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin:10px 0;overflow:visible;max-width:100%}
 .hint summary{cursor:pointer;font-weight:700;color:#4f46e5;list-style:none}
 .hint summary::-webkit-details-marker{display:none}
-.hint-body{margin-top:10px;color:#334155}
-.footer{margin-top:18px;text-align:center;color:#94a3b8;font-size:12px}
-.code-block{margin-top:14px}
-.code-head{display:flex;align-items:center;justify-content:space-between;background:#0b1020;color:#cbd5e1;padding:10px 12px;border-radius:12px 12px 0 0;border:1px solid #1e293b;border-bottom:none;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.hint-body{margin-top:10px;color:#334155;white-space:normal;word-break:break-word;overflow-wrap:anywhere}
+.footer{margin-top:18px;text-align:center;color:#94a3b8;font-size:12px;white-space:normal;word-break:break-word}
+.code-block{margin-top:14px;overflow:visible;max-width:100%}
+.code-head{display:flex;align-items:center;justify-content:space-between;background:#0b1020;color:#cbd5e1;padding:10px 12px;border-radius:12px 12px 0 0;border:1px solid #1e293b;border-bottom:none;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:normal;word-break:break-word}
 .code-head span{opacity:.9}
-.code-body{margin:0;background:#0b1020;color:#e2e8f0;padding:16px;border-radius:0 0 12px 12px;overflow:visible !important;max-width:100% !important;border:1px solid #1e293b;font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap !important;word-break:break-word !important;overflow-wrap:anywhere !important;word-wrap:break-word !important}
+.code-body{margin:0;background:#0b1020;color:#e2e8f0;padding:16px;border-radius:0 0 12px 12px;overflow:visible !important;overflow-x:visible !important;max-width:100% !important;display:block;white-space:pre-wrap !important;word-break:break-word !important;overflow-wrap:anywhere !important;word-wrap:break-word !important}
 @media(prefers-color-scheme:dark){body{background:#020617;color:#e2e8f0}.card{background:#0f172a;border-color:#1e293b}.prose{color:#e2e8f0}.prose strong{color:#fff}.prose code{background:#1e293b;color:#e2e8f0}.hint{background:#0f172a;border-color:#1e293b}.hint-body{color:#cbd5e1}}
 </style>
 </head>
@@ -165,7 +162,7 @@ public:
     </div>
   </div>
 
-  <div class="footer">Saved via LeetCode → GitHub Saver • 8/27/2026, 11:24:12 AM • <a href="https://leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target/">leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target</a></div>
+  <div class="footer">Saved via LeetCode → GitHub Saver • 8/27/2026, 11:29:26 AM • <a href="https://leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target/">leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target</a></div>
 </div>
 </body>
 </html>
