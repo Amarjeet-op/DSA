@@ -1,16 +1,18 @@
+<div align="center">
+
 # Lexicographically Smallest Permutation Greater Than Target
 
-> **LeetCode 3720** · `lexicographically-smallest-permutation-greater-than-target`
+![LeetCode](https://img.shields.io/badge/LeetCode-3720-FFA116?style=for-the-badge&logo=leetcode&logoColor=white) ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-FFC01E?style=for-the-badge) ![Topics](https://img.shields.io/badge/Topics-Hash%20Table%2C%20String%2C%20Greedy%2C%20Counting%2C%20En-6366F1?style=for-the-badge)
 
-| | |
-|---|---|
-| **Difficulty** | 🟡 Medium |
-| **Link** | [lexicographically-smallest-permutation-greater-than-target](https://leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target/) |
-| **Topics** | Hash Table, String, Greedy, Counting, Enumeration |
+**[`↗ Open on LeetCode`](https://leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target/)** · `lexicographically-smallest-permutation-greater-than-target` · `3720`
+
+</div>
 
 ---
 
-## Description
+> **Topics:** `Hash Table` · `String` · `Greedy` · `Counting` · `Enumeration`
+
+## 📝 Description
 
 You are given two strings `s` and `target`, both having length `n`, consisting of lowercase English letters.
 
@@ -64,15 +66,37 @@ A string `a` is **lexicographically strictly greater **than a string `b` (of the
 
 	- `s` and `target` consist of only lowercase English letters.
 
-## Hints
+## 💡 Hints
 
-> **Hint 1:** Maintain frequency counts of `s`.
+<details><summary><b>Hint 1</b></summary>
 
-> **Hint 2:** Walk left-to-right; if equal to `target[i]` is possible, take it and continue.
+Maintain frequency counts of `s`.
 
-> **Hint 3:** If not, try the smallest letter strictly greater than `target[i]`.
+</details>
 
-> **Hint 4:** If neither, backtrack left to the most recent index where you matched `target` and try to bump there.
+<details><summary><b>Hint 2</b></summary>
+
+Walk left-to-right; if equal to `target[i]` is possible, take it and continue.
+
+</details>
+
+<details><summary><b>Hint 3</b></summary>
+
+If not, try the smallest letter strictly greater than `target[i]`.
+
+</details>
+
+<details><summary><b>Hint 4</b></summary>
+
+If neither, backtrack left to the most recent index where you matched `target` and try to bump there.
+
+</details>
 
 ---
-*Saved via LeetCode → GitHub Saver on 8/27/2026, 10:58:22 AM*
+<div align="center">
+
+**Solution & HTML preview:** open [`question.html`](./question.html) for a fully styled, colorful view!
+
+*Saved via LeetCode → GitHub Saver • 8/27/2026, 11:02:07 AM*
+
+</div>
