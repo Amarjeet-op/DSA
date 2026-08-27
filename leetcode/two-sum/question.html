@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Two Sum - LeetCode</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:ui-sans,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial;color:#0f172a;background:#f8fafc}
+a{color:#6366f1;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:880px;margin:0 auto;padding:24px}
+.hero{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 45%,#ec4899 100%);border-radius:20px;color:#fff;padding:32px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(99,102,241,.35)}
+.hero::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.25),transparent 60%);border-radius:50%}
+.hero h1{margin:0 0 12px;font-size:28px;line-height:1.2;letter-spacing:-.02em}
+.meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.02em;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25)}
+.pill.diff{background:#00AF9B;color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.dot{width:8px;height:8px;border-radius:50%;background:#00E6C4;box-shadow:0 0 0 4px rgba(255,255,255,.2)}
+.chip{background:rgba(255,255,255,.92);color:#1e293b;border:none;padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#4f46e5;padding:9px 14px;border-radius:999px;font-weight:800;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:22px;box-shadow:0 8px 24px rgba(15,23,42,.06);margin-top:18px}
+.card h2{margin:0 0 12px;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#64748b}
+.prose{font-size:15px;line-height:1.7;color:#0f172a}
+.prose p{margin:10px 0}
+.prose pre{background:#0b1020;color:#e2e8f0;padding:16px;border-radius:12px;overflow:auto;border:1px solid #1e293b;font-size:13.5px;line-height:1.6}
+.prose code{background:#f1f5f9;padding:2px 6px;border-radius:6px;font-size:13px}
+.prose pre code{background:transparent;padding:0;color:inherit}
+.prose ul,.prose ol{margin:10px 0 10px 22px}
+.prose li{margin:4px 0}
+.prose strong{color:#0f172a}
+.hint{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin:10px 0}
+.hint summary{cursor:pointer;font-weight:700;color:#4f46e5;list-style:none}
+.hint summary::-webkit-details-marker{display:none}
+.hint-body{margin-top:10px;color:#334155}
+.footer{margin-top:18px;text-align:center;color:#94a3b8;font-size:12px}
+.code-block{margin-top:14px}
+.code-head{display:flex;align-items:center;justify-content:space-between;background:#0b1020;color:#cbd5e1;padding:10px 12px;border-radius:12px 12px 0 0;border:1px solid #1e293b;border-bottom:none;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.code-head span{opacity:.9}
+.code-body{margin:0;background:#0b1020;color:#e2e8f0;padding:16px;border-radius:0 0 12px 12px;overflow:auto;border:1px solid #1e293b;font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre;word-wrap:normal}
+@media(prefers-color-scheme:dark){body{background:#020617;color:#e2e8f0}.card{background:#0f172a;border-color:#1e293b}.prose{color:#e2e8f0}.prose strong{color:#fff}.prose code{background:#1e293b;color:#e2e8f0}.hint{background:#0f172a;border-color:#1e293b}.hint-body{color:#cbd5e1}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>Two Sum</h1>
+    <div class="meta">
+      <span class="pill diff"><span class="dot"></span>Easy</span>
+      <span class="pill">#1 · two-sum</span>
+      <a class="btn" href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">↗ Open on LeetCode</a>
+    </div>
+    <div class="meta" style="margin-top:12px"><span class="chip">Array</span><span class="chip">Hash Table</span></div>
+  </div>
+
+  <div class="card">
+    <h2>📝 Description</h2>
+    <div class="prose"><p>You are given an array of integers <code>nums</code>&nbsp;and an integer <code>target</code>, return <em>indices of the two numbers such that they add up to <code>target</code></em>.</p>
+
+<p>You may assume that each input would have <strong><em>exactly</em> one solution</strong>, and you may not use the <em>same</em> element twice.</p>
+
+<p>You can return the answer in any order.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [2,7,11,15], target = 9
+<strong>Output:</strong> [0,1]
+<strong>Explanation:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [3,2,4], target = 6
+<strong>Output:</strong> [1,2]
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [3,3], target = 6
+<strong>Output:</strong> [0,1]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
+	<li><strong>Only one valid answer exists.</strong></li>
+</ul>
+
+<p>&nbsp;</p>
+<strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?</div>
+    <details class="hint"><summary>💡 Hint 1</summary><div class="hint-body">A really brute force way would be to search for all possible pairs of numbers but that would be too slow. Again, it's best to try out brute force solutions just for completeness. It is from these brute force solutions that you can come up with optimizations.</div></details><details class="hint"><summary>💡 Hint 2</summary><div class="hint-body">So, if we fix one of the numbers, say <code>x</code>, we have to scan the entire array to find the next number <code>y</code> which is <code>value - x</code> where value is the input parameter. Can we change our array somehow so that this search becomes faster?</div></details><details class="hint"><summary>💡 Hint 3</summary><div class="hint-body">The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?</div></details>
+  </div>
+
+  <div class="card">
+    <h2>💻 Solution <span style="text-transform:none;font-weight:600;color:#6366f1">· cpp</span></h2>
+    <div class="code-block">
+      <div class="code-head"><span>two-sum.cpp</span><span>✓ Accepted</span></div>
+      <pre class="code-body">class Solution {
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt; &amp;nums, int target) {
+        for (int i = 0; i &lt; nums.size(); i++) {
+            for (int j = i + 1; j &lt; nums.size(); j++) {
+                if (nums[j] == target - nums[i]) {
+                    return {i, j};
+                }
+            }
+        }
+        // Return an empty vector if no solution is found
+        return {};
+    }
+};
+</pre>
+    </div>
+  </div>
+
+  <div class="footer">Saved via LeetCode → GitHub Saver • 8/27/2026, 11:04:17 AM • <a href="https://leetcode.com/problems/two-sum/">leetcode.com/problems/two-sum</a></div>
+</div>
+</body>
+</html>
