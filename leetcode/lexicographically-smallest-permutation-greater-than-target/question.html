@@ -35,7 +35,14 @@ a{color:#6366f1;text-decoration:none}a:hover{text-decoration:underline}
 .code-block{margin-top:14px;overflow:visible;max-width:100%}
 .code-head{display:flex;align-items:center;justify-content:space-between;background:#0b1020;color:#cbd5e1;padding:10px 12px;border-radius:12px 12px 0 0;border:1px solid #1e293b;border-bottom:none;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:normal;word-break:break-word}
 .code-head span{opacity:.9}
-.code-body{margin:0;background:#0b1020;color:#e2e8f0;padding:16px;border-radius:0 0 12px 12px;overflow:visible !important;overflow-x:visible !important;overflow-y:visible !important;width:100%;max-width:100%;display:block;white-space:pre-wrap !important;overflow-wrap:anywhere !important;word-break:break-word !important}
+.code-body{margin:0;padding:16px;background:#0b1020;color:#e2e8f0;border-radius:0 0 12px 12px;display:block;position:static;width:auto;max-width:none;height:auto;max-height:none;min-height:0;overflow:visible !important;overflow-x:visible !important;overflow-y:visible !important;white-space:pre-wrap !important;word-wrap:break-word !important;overflow-wrap:anywhere !important;word-break:break-word !important;box-sizing:border-box}
+html,body{overflow:visible !important;overflow-x:hidden !important;overflow-y:visible !important}
+*{scrollbar-width:none}
+*::-webkit-scrollbar{display:none}
+.container{width:100%;height:auto !important;max-height:none !important;overflow:visible !important}
+.card{width:100%;height:auto !important;max-height:none !important;overflow:visible !important}
+.code-block{width:100%;height:auto !important;max-height:none !important;overflow:visible !important}
+.code-body{width:100%;height:auto !important;max-height:none !important;overflow:visible !important;white-space:pre-wrap !important;overflow-wrap:anywhere !important;word-break:break-word !important}
 @media(prefers-color-scheme:dark){body{background:#020617;color:#e2e8f0}.card{background:#0f172a;border-color:#1e293b}.prose{color:#e2e8f0}.prose strong{color:#fff}.prose code{background:#1e293b;color:#e2e8f0}.hint{background:#0f172a;border-color:#1e293b}.hint-body{color:#cbd5e1}}
 </style>
 </head>
@@ -120,7 +127,7 @@ a{color:#6366f1;text-decoration:none}a:hover{text-decoration:underline}
     <h2>💻 Solution <span style="text-transform:none;font-weight:600;color:#6366f1">· cpp</span></h2>
     <div class="code-block">
       <div class="code-head"><span>lexicographically-smallest-permutation-greater-than-target.cpp</span><span>✓ Accepted</span></div>
-      <pre class="code-body" style="margin:0;background:#0b1020;color:#e2e8f0;padding:16px;border-radius:0 0 12px 12px;overflow:visible !important;overflow-x:visible !important;overflow-y:visible !important;width:100%;max-width:100%;display:block;white-space:pre-wrap !important;overflow-wrap:anywhere !important;word-break:break-word !important">class Solution {
+      <pre class="code-body">class Solution {
 public:
     string lexGreaterPermutation(string s, string target) {
         vector&lt;int&gt; cnt(26);
@@ -163,7 +170,7 @@ public:
     </div>
   </div>
 
-  <div class="footer">Saved via LeetCode → GitHub Saver • 8/27/2026, 11:32:31 AM • <a href="https://leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target/">leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target</a></div>
+  <div class="footer">Saved via LeetCode → GitHub Saver • 8/27/2026, 11:35:32 AM • <a href="https://leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target/">leetcode.com/problems/lexicographically-smallest-permutation-greater-than-target</a></div>
 </div>
 </body>
 </html>
