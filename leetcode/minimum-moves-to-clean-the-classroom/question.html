@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Minimum Moves to Clean the Classroom - LeetCode</title>
+<style>
+*{box-sizing:border-box}
+html,body{width:100%;min-height:100%;margin:0;padding:0;background:#f8fafc;color:#0f172a;font-family:ui-sans,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial;overflow-x:hidden !important;overflow-y:visible !important;max-width:100%}
+a{color:#6366f1;text-decoration:none}a:hover{text-decoration:underline}
+.container{width:100%;max-width:880px;margin:0 auto;padding:24px;overflow:visible !important}
+.card,.prose,.code-block,.code-body{height:auto !important;min-height:0 !important}
+.hero{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 45%,#ec4899 100%);border-radius:20px;color:#fff;padding:32px;position:relative;overflow:visible;box-shadow:0 12px 40px rgba(99,102,241,.35)}
+.hero::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.25),transparent 60%);border-radius:50%;pointer-events:none}
+.hero h1{margin:0 0 12px;font-size:28px;line-height:1.2;letter-spacing:-.02em;white-space:normal;word-break:break-word;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.02em;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25)}
+.pill.diff{background:#FFC01E;color:#111827;border-color:transparent;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.dot{width:8px;height:8px;border-radius:50%;background:#FFD24D;box-shadow:0 0 0 4px rgba(255,255,255,.2)}
+.chip{background:rgba(255,255,255,.92);color:#1e293b;border:none;padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px;white-space:normal;word-break:break-word}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#4f46e5;padding:9px 14px;border-radius:999px;font-weight:800;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.18);white-space:normal}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:22px;box-shadow:0 8px 24px rgba(15,23,42,.06);margin-top:18px;overflow:visible;max-width:100%}
+.card h2{margin:0 0 12px;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#64748b}
+.prose{font-size:15px;line-height:1.7;color:#0f172a;overflow:visible !important;max-width:100% !important;word-break:break-word;overflow-wrap:anywhere;white-space:normal}
+.prose *{max-width:100% !important;box-sizing:border-box !important;overflow:visible !important;overflow-x:visible !important}
+.prose p,.prose ul,.prose ol,.prose li,.prose div{white-space:normal !important;word-break:break-word !important;overflow-wrap:anywhere !important;overflow:visible !important;max-width:100% !important}
+.prose pre{white-space:pre-wrap !important;word-break:break-word !important;overflow-wrap:anywhere !important;overflow:visible !important;max-width:100% !important;display:block}
+.prose code{white-space:normal !important;word-break:break-word !important;overflow-wrap:anywhere !important;max-width:100% !important;display:inline;overflow:visible !important;background:#f1f5f9;padding:2px 6px;border-radius:6px;font-size:13px}
+.prose strong{color:#0f172a;white-space:normal;word-break:break-word}
+.hint{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin:10px 0;overflow:visible;max-width:100%}
+.hint summary{cursor:pointer;font-weight:700;color:#4f46e5;list-style:none}
+.hint summary::-webkit-details-marker{display:none}
+.hint-body{margin-top:10px;color:#334155;white-space:normal;word-break:break-word;overflow-wrap:anywhere}
+.footer{margin-top:18px;text-align:center;color:#94a3b8;font-size:12px;white-space:normal;word-break:break-word}
+.code-block{margin-top:14px;overflow:visible;max-width:100%}
+.code-head{display:flex;align-items:center;justify-content:space-between;background:#0b1020;color:#cbd5e1;padding:10px 12px;border-radius:12px 12px 0 0;border:1px solid #1e293b;border-bottom:none;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:normal;word-break:break-word}
+.code-head span{opacity:.9}
+.code-body{margin:0;padding:16px;background:#0b1020;color:#e2e8f0;border-radius:0 0 12px 12px;display:block;position:static;width:auto;max-width:none;height:auto;max-height:none;min-height:0;overflow:visible !important;overflow-x:visible !important;overflow-y:visible !important;white-space:pre-wrap !important;word-wrap:break-word !important;overflow-wrap:anywhere !important;word-break:break-word !important;box-sizing:border-box}
+html,body{overflow:visible !important;overflow-x:hidden !important;overflow-y:visible !important}
+*{scrollbar-width:none}
+*::-webkit-scrollbar{display:none}
+.container{width:100%;height:auto !important;max-height:none !important;overflow:visible !important}
+.card{width:100%;height:auto !important;max-height:none !important;overflow:visible !important}
+.code-block{width:100%;height:auto !important;max-height:none !important;overflow:visible !important}
+.code-body{width:100%;height:auto !important;max-height:none !important;overflow:visible !important;white-space:pre-wrap !important;overflow-wrap:anywhere !important;word-break:break-word !important}
+@media(prefers-color-scheme:dark){body{background:#020617;color:#e2e8f0}.card{background:#0f172a;border-color:#1e293b}.prose{color:#e2e8f0}.prose strong{color:#fff}.prose code{background:#1e293b;color:#e2e8f0}.hint{background:#0f172a;border-color:#1e293b}.hint-body{color:#cbd5e1}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>Minimum Moves to Clean the Classroom</h1>
+    <div class="meta">
+      <span class="pill diff"><span class="dot"></span>Medium</span>
+      <span class="pill">#3568 · minimum-moves-to-clean-the-classroom</span>
+      <a class="btn" href="https://leetcode.com/problems/minimum-moves-to-clean-the-classroom/" target="_blank" rel="noopener">↗ Open on LeetCode</a>
+    </div>
+    <div class="meta" style="margin-top:12px"><span class="chip">Array</span><span class="chip">Hash Table</span><span class="chip">Bit Manipulation</span><span class="chip">Breadth-First Search</span><span class="chip">Matrix</span></div>
+  </div>
+
+  <div class="card">
+    <h2>📝 Description</h2>
+    <div class="prose"><p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible" data-end="324" data-start="147">You are given an <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">m x n</code> grid <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">classroom</code> where a student volunteer is tasked with cleaning up litter scattered around the room. Each cell in the grid is one of the following:</p>
+
+<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;S&#39;</code>: Starting position of the student</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;L&#39;</code>: Litter that must be collected (once collected, the cell becomes empty)</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;R&#39;</code>: Reset area that restores the student&#39;s energy to full capacity, regardless of their current energy level (can be used multiple times)</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;X&#39;</code>: Obstacle the student cannot pass through</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;.&#39;</code>: Empty space</li>
+</ul>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">You are also given an integer <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">energy</code>, representing the student&#39;s maximum energy capacity. The student starts with this energy from the starting position <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;S&#39;</code>.</p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">Each move to an adjacent cell (up, down, left, or right) costs 1 unit of energy. If the energy reaches 0, the student can only continue if they are on a reset area <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;R&#39;</code>, which resets the energy to its <strong style="word-break:break-word;overflow-wrap:anywhere">maximum</strong> capacity <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">energy</code>.</p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">Return the <strong style="word-break:break-word;overflow-wrap:anywhere">minimum</strong> number of moves required to collect all litter items, or <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">-1</code> if it&#39;s impossible.</p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">&nbsp;</p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere" class="example">Example 1:</strong></p>
+
+<div class="example-block">
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Input:</strong> <span class="example-io">classroom = [&quot;S.&quot;, &quot;XL&quot;], energy = 2</span></p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Output:</strong> <span class="example-io">2</span></p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Explanation:</strong></p>
+
+<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">The student starts at cell <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%" data-end="262" data-start="254">(0, 0)</code> with 2 units of energy.</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">Since cell <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(1, 0)</code> contains an obstacle &#39;X&#39;, the student cannot move directly downward.</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">A valid sequence of moves to collect all litter is as follows:
+	<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+		<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">Move 1: From <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(0, 0)</code> &rarr; <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(0, 1)</code> with 1 unit of energy and 1 unit remaining.</li>
+		<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">Move 2: From <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(0, 1)</code> &rarr; <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(1, 1)</code> to collect the litter <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;L&#39;</code>.</li>
+	</ul>
+	</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">The student collects all the litter using 2 moves. Thus, the output is 2.</li>
+</ul>
+</div>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere" class="example">Example 2:</strong></p>
+
+<div class="example-block">
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Input:</strong> <span class="example-io">classroom = [&quot;LS&quot;, &quot;RL&quot;], energy = 4</span></p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Output:</strong> <span class="example-io">3</span></p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Explanation:</strong></p>
+
+<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">The student starts at cell <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%" data-end="262" data-start="254">(0, 1)</code> with 4 units of energy.</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">A valid sequence of moves to collect all litter is as follows:
+	<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+		<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">Move 1: From <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(0, 1)</code> &rarr; <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(0, 0)</code> to collect the first litter <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;L&#39;</code> with 1 unit of energy used and 3 units remaining.</li>
+		<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">Move 2: From <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(0, 0)</code> &rarr; <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(1, 0)</code> to <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;R&#39;</code> to reset and restore energy back to 4.</li>
+		<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">Move 3: From <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(1, 0)</code> &rarr; <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">(1, 1)</code> to collect the second litter <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%" data-end="1068" data-start="1063">&#39;L&#39;</code>.</li>
+	</ul>
+	</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">The student collects all the litter using 3 moves. Thus, the output is 3.</li>
+</ul>
+</div>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere" class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Input:</strong> <span class="example-io">classroom = [&quot;L.S&quot;, &quot;RXL&quot;], energy = 3</span></p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Output:</strong> <span class="example-io">-1</span></p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Explanation:</strong></p>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">No valid path collects all <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;L&#39;</code>.</p>
+</div>
+
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible">&nbsp;</p>
+<p style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible"><strong style="word-break:break-word;overflow-wrap:anywhere">Constraints:</strong></p>
+
+<ul style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;margin:10px 0 10px 22px">
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">1 &lt;= m == classroom.length &lt;= 20</code></li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">1 &lt;= n == classroom[i].length &lt;= 20</code></li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">classroom[i][j]</code> is one of <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;S&#39;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;L&#39;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;R&#39;</code>, <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;X&#39;</code>, or <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;.&#39;</code></li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word"><code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">1 &lt;= energy &lt;= 50</code></li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">There is exactly <strong style="word-break:break-word;overflow-wrap:anywhere">one</strong> <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;S&#39;</code> in the grid.</li>
+	<li style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%;overflow:visible;word-wrap:break-word">There are <strong style="word-break:break-word;overflow-wrap:anywhere">at most</strong> 10 <code style="white-space:normal;word-break:break-word;overflow-wrap:anywhere;max-width:100%">&#39;L&#39;</code> cells in the grid.</li>
+</ul>
+</div>
+    <details class="hint"><summary>💡 Hint 1</summary><div class="hint-body">Use BFS with states <code>(x, y, mask, e, steps)</code>, initializing with <code>(sx, sy, 0, energy, 0)</code>, and for each move update <code>e</code> (–1 per step), update <code>mask</code> on 'L', reset <code>e=energy</code> on 'R', and return <code>steps</code> when <code>mask == fullMask</code>.</div></details><details class="hint"><summary>💡 Hint 2</summary><div class="hint-body">Maintain a 3D array <code>bestEnergy[x][y][mask]</code> storing the maximum <code>e</code> seen for each <code>(x,y,mask)</code> and skip any new state with <code>e <= bestEnergy[x][y][mask]</code> to prune.</div></details>
+  </div>
+
+  <div class="card">
+    <h2>💻 Solution <span style="text-transform:none;font-weight:600;color:#6366f1">· cpp</span></h2>
+    <div class="code-block">
+      <div class="code-head"><span>minimum-moves-to-clean-the-classroom.cpp</span><span>✓ Accepted</span></div>
+      <pre class="code-body" style="margin:0;padding:16px;background:#0b1020;color:#e2e8f0;border-radius:0 0 12px 12px;display:block;position:static;width:auto;max-width:none;height:auto;max-height:none;min-height:0;overflow:visible !important;overflow-x:visible !important;overflow-y:visible !important;white-space:pre-wrap !important;word-wrap:break-word !important;overflow-wrap:anywhere !important;word-break:break-word !important;box-sizing:border-box">
+                if (nx &lt; 0 || nx &gt;= m || ny &lt; 0 || ny &gt;= n ||
+                    classroom[nx][ny] == 'X') {
+                    continue;
+                }
+
+                int ne = classroom[nx][ny] == 'R' ? energy : t.e - 1;
+                int nmask = t.mask | id[nx][ny];
+
+                if (ne &gt; bestEnergy[nx][ny][nmask]) {
+                    bestEnergy[nx][ny][nmask] = ne;
+                    q.push({nx, ny, nmask, ne, t.steps + 1});
+                }
+            }
+        }
+        return -1;
+    }
+};
+</pre>
+    </div>
+  </div>
+
+  <div class="footer">Saved via LeetCode → GitHub Saver • 9/1/2026, 1:52:25 PM • <a href="https://leetcode.com/problems/minimum-moves-to-clean-the-classroom/">leetcode.com/problems/minimum-moves-to-clean-the-classroom</a></div>
+</div>
+</body>
+</html>
